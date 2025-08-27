@@ -92,19 +92,19 @@ class App extends Component {
 
     return(
       <>
-      <ScrollView>
+      <ScrollView style={styles.container}>
         <View>
           <Image
-            source={{uri: 'ruta de la imagen'}}
-            // style={{width: 100, height: 100}} // Se crea el estilo
+            source={{uri: 'https://cdn-icons-png.flaticon.com/512/6073/6073874.png'}}
+            style={styles.imagen} // Se crea el estilo
             resizeMode='cover'
           />
-          <Text>Mi perfil de usuario</Text>
-          <Text>Mi aplicación demo de react</Text>
+          <Text style={styles.text}>Mi perfil de usuario</Text>
+          <Text style={styles.text}>Mi aplicación demo de react</Text>
         </View>
 
         <View>
-          <Text>Nombre</Text>
+          <Text style={styles.header}>Nombre</Text>
           <TextInput
             value={nombre}
             onChangeText={this.changeNameState}
@@ -112,7 +112,7 @@ class App extends Component {
             placeholderTextColor='#999'
           />
 
-          <Text>Apellido</Text>
+          <Text style={styles.header}>Apellido</Text>
           <TextInput
             value={apellido}
             onChangeText={this.changeLastNameState}
@@ -120,7 +120,7 @@ class App extends Component {
             placeholderTextColor='#999'
           />
 
-          <Text>Email</Text>
+          <Text style={styles.header}>Email</Text>
           <TextInput
             value={email}
             onChangeText={this.changeEmailState}
@@ -128,7 +128,7 @@ class App extends Component {
             placeholderTextColor='#999'
           />
           
-          <Text>Télefono</Text>
+          <Text style={styles.header}>Télefono</Text>
           <TextInput
             value={telefono}
             onChangeText={this.changeTelefonoState}
@@ -136,7 +136,7 @@ class App extends Component {
             placeholderTextColor='#999'
           />
 
-          <Text>Descripción</Text>
+          <Text style={styles.header}>Descripción</Text>
           <TextInput
             value={descripcion}
             onChangeText={this.changeDescriptionState}
@@ -147,12 +147,13 @@ class App extends Component {
         </View>
 
         <View>
+
           <Button
             title='Guardar Perfil'
             //onPress={} // Crear método para guardar
           />
 
-          <Button
+          <Button style={styles.button}
             title='Limpiar Formulario'
             onPress={this.clearForm}
           />
@@ -165,5 +166,38 @@ class App extends Component {
 
 
 }; // Cierre de la clase
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F5F5F5'
+  },
+
+  header: {
+    backgroundColor: '#4059e6ff',
+    alignItems: 'center',
+    marginBottom: 20,
+    padding: 30
+  },
+
+  imagen: {
+    width: 80,
+    height: 80,
+    borderRadius:30,
+    marginBottom: 15,
+    borderWidth: 4,
+    borderColor: 'white'
+  },
+
+  button: {
+    color: '#FFF',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+
+  text: {
+    alignItems: 'center'
+  }
+})
 
 export default App;
